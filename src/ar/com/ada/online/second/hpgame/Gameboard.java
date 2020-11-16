@@ -1,5 +1,10 @@
 package ar.com.ada.online.second.hpgame;
 
+import ar.com.ada.online.second.hpgame.character.Wizard;
+import ar.com.ada.online.second.hpgame.wand.Wand;
+
+import java.util.Scanner;
+
 public class Gameboard {
     private Character playerOne;
     private Character playerTwo;
