@@ -94,7 +94,7 @@ public class Gameboard {
 
     //seleccion de varita
 
-    public static Wand randomWandSelection() {
+    public Wand randomWandSelection() {
 
         ArrayList<Wand> arrayRandomWands = new ArrayList<>();
 
@@ -108,8 +108,8 @@ public class Gameboard {
 
         Wand randomWand = arrayRandomWands.get(random.nextInt(arrayRandomWands.size()));
 
-        System.out.println("Una varita te elegira... ... ...");
-        System.out.println("La varita que te eligio es: " + randomWand);
+        System.out.println("Una varita te elegirá ... ... ...");
+        System.out.println("La varita que te eligió es: " + randomWand);
 
         return randomWand;
 

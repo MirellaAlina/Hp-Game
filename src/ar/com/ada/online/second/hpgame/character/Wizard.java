@@ -1,25 +1,27 @@
 package ar.com.ada.online.second.hpgame.character;
 
+import ar.com.ada.online.second.hpgame.wand.Wand;
+
 public class Wizard extends Character {
 
     //ATRIBUTOS
-    private String wand;
+    private Wand wand;
 
     public Wizard() {
     }
 
 
-    public Wizard(String name, Integer energyLevel, Integer magicLevel, String location, String wand) {
+    public Wizard(String name, Integer energyLevel, Integer magicLevel, String location, Wand wand) {
         super(name, energyLevel, magicLevel, location);
         this.wand = wand;
     }
 
 
-    public String getWand() {
+    public Wand getWand() {
         return wand;
     }
 
-    public void setWand(String wand) {
+    public void setWand(Wand wand) {
         this.wand = wand;
     }
 
