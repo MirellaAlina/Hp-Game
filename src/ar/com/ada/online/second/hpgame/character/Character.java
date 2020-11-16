@@ -1,6 +1,6 @@
 package ar.com.ada.online.second.hpgame.character;
 
-import ar.com.ada.online.second.spells.Spell;
+import ar.com.ada.online.second.hpgame.spell.Spell;
 
 import java.util.ArrayList;
 
