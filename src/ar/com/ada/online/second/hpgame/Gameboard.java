@@ -142,11 +142,11 @@ public class Gameboard {
 
         ArrayList<Wand> arrayRandomWands = new ArrayList<>();
 
-        arrayRandomWands.add(new Wand("Varita1", 1));
-        arrayRandomWands.add(new Wand("Varita2", 2));
-        arrayRandomWands.add(new Wand("Varita3", 3));
-        arrayRandomWands.add(new Wand("Varita4", 4));
-        arrayRandomWands.add(new Wand("Varita5" , 5));
+        arrayRandomWands.add(new Wand("Avellano", 1));
+        arrayRandomWands.add(new Wand("Endrino", 2));
+        arrayRandomWands.add(new Wand("Olmo", 3));
+        arrayRandomWands.add(new Wand("Serbal", 4));
+        arrayRandomWands.add(new Wand("Sauco" , 5));
 
         Random random = new Random();
 
