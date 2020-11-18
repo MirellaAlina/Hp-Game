@@ -1,5 +1,6 @@
 package ar.com.ada.online.second.hpgame;
 
+import ar.com.ada.online.second.hpgame.character.Elf;
 import ar.com.ada.online.second.hpgame.character.Wizard;
 import ar.com.ada.online.second.hpgame.wand.Wand;
 
@@ -41,10 +42,10 @@ public class Gameboard {
         Elf elfPlayer = new Elf();
         System.out.println("Seleccione el nombre de su personaje!");
         ArrayList<String> arrayCharactersElfs = new ArrayList<>();
-        arrayCharacters.add("Dobby");
-        arrayCharacters.add("Kreacher");
-        arrayCharacters.add("Hokey");
-        arrayCharacters.add("Winky");
+        arrayCharactersElfs.add("Dobby");
+        arrayCharactersElfs.add("Kreacher");
+        arrayCharactersElfs.add("Hokey");
+        arrayCharactersElfs.add("Winky");
 
 
         System.out.println(arrayCharactersElfs);
