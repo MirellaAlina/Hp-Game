@@ -37,8 +37,51 @@ public class Gameboard {
         return SelectDataCharacter();
     }
 
-    private Character setElf() {
-        return null;
+    public Elf setElf() {
+        Elf elfPlayer = new Elf();
+        System.out.println("Seleccione el nombre de su personaje!");
+        ArrayList<String> arrayCharactersElfs = new ArrayList<>();
+        arrayCharacters.add("Dobby");
+        arrayCharacters.add("Kreacher");
+        arrayCharacters.add("Hokey");
+        arrayCharacters.add("Winky");
+
+
+        System.out.println(arrayCharactersElfs);
+        System.out.println();
+        System.out.println("O escriba su nombre!");
+        String playerName = keyboard.nextLine();
+        elfPlayer.setName(playerName);
+
+//        seleccion de ubicacion
+
+        System.out.println("Seleccione ubicación: 1-IZQUIERDA, 2-CENTRO, 3-DERECHA");
+        System.out.println("");
+        int option = 0;
+        switch (option) {
+
+            case 1:
+                elfPlayer.setLocation("IZQUIERDA");
+                break;
+
+            case 2:
+                elfPlayer.setLocation("CENTRO");
+                break;
+
+            case 3:
+                elfPlayer.setLocation("DERECHA");
+
+            default:
+                System.out.println("Seleccione una ubicacion ingresando 1, 2 o 3");
+                break;
+        }
+
+        //seteamos demas atributos de elfo
+
+        elfPlayer.setMagicLevel(100);
+        elfPlayer.setEnergyLevel(100);
+
+        return elfPlayer;
     }
 
     public Wizard setWizard(){
