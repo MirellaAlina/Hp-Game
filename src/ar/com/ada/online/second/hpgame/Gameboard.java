@@ -39,27 +39,48 @@ public class Gameboard {
     }
 
     public Elf setElf() {
-        Elf elfPlayer = new Elf();
+
         System.out.println("Seleccione el nombre de su personaje!");
-        ArrayList<String> arrayCharactersElfs = new ArrayList<>();
-        arrayCharactersElfs.add("Dobby");
-        arrayCharactersElfs.add("Kreacher");
-        arrayCharactersElfs.add("Hokey");
-        arrayCharactersElfs.add("Winky");
+        System.out.println("\t1) Dobby \t");
+        System.out.println("\t2) Kreacher");
+        System.out.println("\t3) Hokey");
+        System.out.println("\t4) Winky");
+
+        Elf elfPlayer = new Elf();
+
+        int option = keyboard.nextInt();
+
+        switch (option) {  // al objeto elfo le seteo el nombre
+            case 1:
+                elfPlayer.setName("Dobby");
+
+                break;
+            case 2:
+                elfPlayer.setName("Kreacher");
+
+                break;
+            case 3:
+                elfPlayer.setName("Hokey");
+
+                break;
+            case 4:
+                elfPlayer.setName("Winky");
+
+                break;
+            default:
+                System.out.println("Debe elegir una opción válida del 1 al 4");
+                elfPlayer = null; // anulo esta instancia porque no eligió una opción válida
+        }
+        return elfPlayer;
 
 
-        System.out.println(arrayCharactersElfs);
-        System.out.println();
-        System.out.println("O escriba su nombre!");
-        String playerName = keyboard.nextLine();
-        elfPlayer.setName(playerName);
 
 //        seleccion de ubicacion
 
         System.out.println("Seleccione ubicación: 1-IZQUIERDA, 2-CENTRO, 3-DERECHA");
         System.out.println("");
-        int option = 0;
-        switch (option) {
+        int optionLocation = 0;
+        switch (optionLocation) {
 
             case 1:
                 elfPlayer.setLocation("IZQUIERDA");
