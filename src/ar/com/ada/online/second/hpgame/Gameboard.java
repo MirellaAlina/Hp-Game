@@ -1,5 +1,6 @@
 package ar.com.ada.online.second.hpgame;
 
+import ar.com.ada.online.second.hpgame.character.Character;
 import ar.com.ada.online.second.hpgame.character.Elf;
 import ar.com.ada.online.second.hpgame.character.Wizard;
 import ar.com.ada.online.second.hpgame.wand.Wand;
@@ -13,32 +14,33 @@ public class Gameboard {
     private Character playerTwo;
     private Scanner keyboard = new Scanner(System.in);
 
-    public Character SelectDataCharacter() {
+    public void character() {
         System.out.println("Selección del jugador nro 1 ");
-        playerOne = SelectCharacter();
+        playerOne = selectCharacter();
 
         System.out.println("\n");
 
         System.out.println("Selección del jugador nro 2 ");
-        playerTwo = SelectCharacter();
-        return null;
+        playerTwo = selectCharacter();
+
     }
 
-    private Character SelectCharacter() {
+    private Character selectCharacter() {
         System.out.println("Seleccione el tipo de personaje: ");
         System.out.println("\n 1- Mago ,\n 2- Elfo: ");
-        int character = keyboard.nextInt();
-        switch (character) {
-            case 1: setWizard();
+        int option = keyboard.nextInt();
+        Character character = null;
+        switch (option) {
+            case 1: character = getWizard();
             break;
 
-            case 2: setElf();
+            case 2: character = getElf();
             break;
         }
-        return SelectDataCharacter();
+        return character;
     }
 
-    public Elf setElf() {
+    public Character getElf() {
 
         System.out.println("Seleccione el nombre de su personaje!");
         System.out.println("\t1) Dobby \t");
@@ -71,32 +73,10 @@ public class Gameboard {
                 System.out.println("Debe elegir una opción válida del 1 al 4");
                 elfPlayer = null; // anulo esta instancia porque no eligió una opción válida
         }
-        return elfPlayer;
 
 
 
-//        seleccion de ubicacion
 
-        System.out.println("Seleccione ubicación: 1-IZQUIERDA, 2-CENTRO, 3-DERECHA");
-        System.out.println("");
-        int optionLocation = 0;
-        switch (optionLocation) {
-
-            case 1:
-                elfPlayer.setLocation("IZQUIERDA");
-                break;
-
-            case 2:
-                elfPlayer.setLocation("CENTRO");
-                break;
-
-            case 3:
-                elfPlayer.setLocation("DERECHA");
-
-            default:
-                System.out.println("Seleccione una ubicacion ingresando 1, 2 o 3");
-                break;
-        }
 
         //seteamos demas atributos de elfo
 
@@ -106,44 +86,62 @@ public class Gameboard {
         return elfPlayer;
     }
 
-    public Wizard setWizard(){
-        Wizard wizardPlayer = new Wizard();
+    public Character getWizard() {
         System.out.println("Seleccione el nombre de su personaje!");
+        System.out.println("\tGryffindor");
+        System.out.println("\t1) Harry Potter\t");
+        System.out.println("\t2) Hermione Granger");
+        System.out.println("\tRavenclaw");
+        System.out.println("\t3) Luna Lovegood");
+        System.out.println("\t4) Filius Flitwick");
+        System.out.println("\tSlytherin");
+        System.out.println("\t5) Draco Malfoy");
+        System.out.println("\t6) Bellatrix Lestrange");
+        System.out.println("\tHufflepuff");
+        System.out.println("\t7) Newt Scamander");
+        System.out.println("\t8) Nymphadora Tonks");
 
-        ArrayList<String> arrayCharacters = new ArrayList<>();
-        arrayCharacters.add("Harry");
-        arrayCharacters.add("Hermione");
-        arrayCharacters.add("Luna");
-        arrayCharacters.add("Draco");
-        arrayCharacters.add("Severus");
 
-        System.out.println(arrayCharacters);
-        System.out.println();
-        System.out.println("O escriba su nombre!");
-        String playerName = keyboard.nextLine();
-        wizardPlayer.setName(playerName);
+        Wizard wizardPlayer = new Wizard();
 
-        //seleccion de ubicacion
+        int option = keyboard.nextInt();
 
-        System.out.println("Seleccione ubicación: 1-IZQUIERDA, 2-CENTRO, 3-DERECHA");
-        System.out.println("");
-        int option = 0;
-        switch (option) {
-
+        switch (option) {  // al objeto elfo le seteo el nombre
             case 1:
-                wizardPlayer.setLocation("IZQUIERDA");
-                break;
+                wizardPlayer.setName("Harry Potter");
 
+                break;
             case 2:
-                wizardPlayer.setLocation("CENTRO");
-                break;
+                wizardPlayer.setName("Hermione Granger");
 
+                break;
             case 3:
-                wizardPlayer.setLocation("DERECHA");
+                wizardPlayer.setName("Luna Lovegood");
 
-            default:
-                System.out.println("Seleccione una ubicacion ingresando 1, 2 o 3");
                 break;
+            case 4:
+                wizardPlayer.setName("Filius Flitwick");
+
+                break;
+            case 5:
+                wizardPlayer.setName("Draco Malfoy");
+
+                break;
+            case 6:
+                wizardPlayer.setName("Bellatrix Lestrange");
+
+                break;
+            case 7:
+                wizardPlayer.setName("Newt Scamander");
+
+                break;
+            case 8:
+                wizardPlayer.setName("Nymphadora Tonks");
+
+                break;
+            default:
+                System.out.println("Debe elegir una opción válida del 1 al 8");
+                wizardPlayer = null; // anulo esta instancia porque no eligió una opción válida
         }
 
         //seteamos demas atributos de mago
@@ -173,11 +171,37 @@ public class Gameboard {
 
         Wand randomWand = arrayRandomWands.get(random.nextInt(arrayRandomWands.size()));
 
-        System.out.println("Una varita te elegirá ... ... ...");
+        System.out.println("Una varita te elegirá ... \n... \n...");
         System.out.println("La varita que te eligió es: " + randomWand);
 
         return randomWand;
 
+    }
+    // seleccion de ubicacion
+    public String characterLocation() {
+
+        System.out.println("Seleccione ubicación: 1-IZQUIERDA, 2-CENTRO, 3-DERECHA");
+        int optionLocation = 0;
+        optionLocation = keyboard.nextInt();
+        String location = null;
+        switch (optionLocation) {
+
+        case 1:
+            location = "IZQUIERDA";
+            break;
+
+        case 2:
+            location = "CENTRO";
+            break;
+
+        case 3:
+            location = "DERECHA";;
+
+        default:
+            System.out.println("Seleccione una ubicacion ingresando 1, 2 o 3");
+            break;
+    }
+    return location;
     }
 
 
