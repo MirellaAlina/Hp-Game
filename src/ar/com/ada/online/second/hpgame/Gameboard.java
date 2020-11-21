@@ -209,6 +209,10 @@ public class Gameboard {
         }
         return location;
     }
+    public Character loadCharacterSpell() {
+        System.out.println("Los hechizos disponibles son: ");
+        
+}
 
 
 }
