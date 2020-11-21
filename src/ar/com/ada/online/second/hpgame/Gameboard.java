@@ -31,11 +31,13 @@ public class Gameboard {
         int option = keyboard.nextInt();
         Character character = null;
         switch (option) {
-            case 1: character = getWizard();
-            break;
+            case 1:
+                character = getWizard();
+                break;
 
-            case 2: character = getElf();
-            break;
+            case 2:
+                character = getElf();
+                break;
         }
         return character;
     }
@@ -74,9 +76,8 @@ public class Gameboard {
                 elfPlayer = null; // anulo esta instancia porque no eligió una opción válida
         }
 
-
-
-
+        // seleccion de ubicacion
+        elfPlayer.setLocation(characterLocation());
 
         //seteamos demas atributos de elfo
 
@@ -144,6 +145,9 @@ public class Gameboard {
                 wizardPlayer = null; // anulo esta instancia porque no eligió una opción válida
         }
 
+        // seleccion de ubicacion
+        wizardPlayer.setLocation(characterLocation());
+
         //seteamos demas atributos de mago
 
         wizardPlayer.setMagicLevel(100);
@@ -165,7 +169,7 @@ public class Gameboard {
         arrayRandomWands.add(new Wand("Endrino", 2));
         arrayRandomWands.add(new Wand("Olmo", 3));
         arrayRandomWands.add(new Wand("Serbal", 4));
-        arrayRandomWands.add(new Wand("Sauco" , 5));
+        arrayRandomWands.add(new Wand("Sauco", 5));
 
         Random random = new Random();
 
@@ -177,6 +181,7 @@ public class Gameboard {
         return randomWand;
 
     }
+
     // seleccion de ubicacion
     public String characterLocation() {
 
@@ -186,24 +191,24 @@ public class Gameboard {
         String location = null;
         switch (optionLocation) {
 
-        case 1:
-            location = "IZQUIERDA";
-            break;
+            case 1:
+                location = "IZQUIERDA";
+                break;
 
-        case 2:
-            location = "CENTRO";
-            break;
+            case 2:
+                location = "CENTRO";
+                break;
 
-        case 3:
-            location = "DERECHA";;
+            case 3:
+                location = "DERECHA";
+                ;
 
-        default:
-            System.out.println("Seleccione una ubicacion ingresando 1, 2 o 3");
-            break;
+            default:
+                System.out.println("Seleccione una ubicacion ingresando 1, 2 o 3");
+                break;
+        }
+        return location;
     }
-    return location;
-    }
-
 
 
 }
