@@ -3,9 +3,14 @@ package ar.com.ada.online.second.hpgame;
 import ar.com.ada.online.second.hpgame.character.Character;
 import ar.com.ada.online.second.hpgame.character.Elf;
 import ar.com.ada.online.second.hpgame.character.Wizard;
+import ar.com.ada.online.second.hpgame.spell.Attack;
+import ar.com.ada.online.second.hpgame.spell.Healing;
+import ar.com.ada.online.second.hpgame.spell.Recovery;
+import ar.com.ada.online.second.hpgame.spell.Spell;
 import ar.com.ada.online.second.hpgame.wand.Wand;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -209,10 +214,98 @@ public class Gameboard {
         }
         return location;
     }
-    public Character loadCharacterSpell() {
-        System.out.println("Los hechizos disponibles son: ");
-        
-}
 
+// Selección de hechizos
+    public static List<Spell> loadCharacterSpell() {
+        Scanner keyboard = new Scanner(System.in);
+
+        System.out.println("Solo se podrán jugar con seis (6) hechizos que elijas de la lista.\n" +
+                "Piensa sabiamente y elige con cuidado.");
+        System.out.println("Los hechizos disponibles son: ");
+        System.out.println("\nHechizos de ataque:\n" +
+                "1) Aguamenti: Daño 10, Energía necesaria 10.\n" +
+                "Este encantamiento genera un chorro de agua desde la punta de la varita.\n" +
+                "2) Incendio: Daño 20, Energía necesaria 20.\n" +
+                "Este hechizo genera llamas desde la punta de la varita.\n" +
+                "3) Bombarda maxima: Daño 25, Energía necesaria 40.\n" +
+                "Este encantamiento provoca una pequeña explosión en su objetivo.;\n" +
+                "4) Avada Kedavra: Daño 100, Energía necesaria 90.\n" +
+                "Maleficio imperdonable, mata en el acto a cualquier ser vivo que le alcance.\n" +
+                "5) Imperius: Daño 90, Energía necesaria 80.\n" +
+                "Maleficio imperdonable, permite controlar completamente los pensamientos y acciones de la víctima\n" +
+                "6) Cruciatus: Daño 80, Energía necesaria 70.\n" +
+                "Maleficio imperdonable, provoca un dolor insoportable y agónico en su víctima.");
+
+
+        System.out.println("\nHechizos de Recuperación:\n" +
+                "7) Protego: Recupera energía 5, Energía necesaria 2.\n" +
+                "Genera una barrera invisible que permite bloquear y desviar hechizos enemigos.\n" +
+                "8) Finite: Recupera energía 10, Energía necesaria 3.\n" +
+                "Contrahechizo que cesa los efectos de un encantamiento.\n" +
+                "9) Expelliarmus: Recupera energía 15, Energía necesaria 4.\n" +
+                "Encantamiento desarmador.\n");
+
+        System.out.println("Hechizos de sanación:\n" +
+                "10) Episkey: Recupera vida 10, Energía necesaria 4.\n" +
+                "Hechizo para tratar heridas leves.\n" +
+                "11) Reparifors: Recupera vida 15, Energía necesaria 6.\n" +
+                "Cura dolencias menores generadas por magia como la parálisis.\n" +
+                "12) Vulnera Sanentur: Recupera vida 20, Energía necesaria 8.\n" +
+                "Hechizo usado para curar heridas profundas.\n");
+
+        List<Spell> spellsSelected = new ArrayList<>();
+        boolean auxiliar;
+        int option;
+        for (int i = 0; i < 5; i++) {
+            do {
+                auxiliar = false;
+                System.out.println("Elige el número del hechizo a utilizar: ");
+                System.out.print("Opcion: ");
+                option = keyboard.nextInt();
+                switch (option) {
+                    case 1:
+                        spellsSelected.add(new Attack("Aguamenti", 10, 10));
+                        break;
+                    case 2:
+                        spellsSelected.add(new Attack("Incendio", 20, 20));
+                        break;
+                    case 3:
+                        spellsSelected.add(new Attack("Bombarda maxima", 25, 40));
+                        break;
+                    case 4:
+                        spellsSelected.add(new Attack("Avada Kedavra", 100, 90));
+                        break;
+                    case 5:
+                        spellsSelected.add(new Attack("Imperius", 90, 80));
+                        break;
+                    case 6:
+                        spellsSelected.add(new Attack("Cruciatus", 80, 70));
+                    case 7:
+                        spellsSelected.add(new Recovery("Protego", 5, 2));
+                        break;
+                    case 8:
+                        spellsSelected.add(new Recovery("Finite", 10, 3));
+                        break;
+                    case 9:
+                        spellsSelected.add(new Recovery("Expelliarmus", 15, 4));
+                        break;
+                    case 10:
+                        spellsSelected.add(new Healing("Episkey", 10, 4));
+                        break;
+                    case 11:
+                        spellsSelected.add(new Healing("Reparifors", 15, 6));
+                        break;
+                    case 12:
+                        spellsSelected.add(new Healing("Vulnera Sanentur", 20, 8));
+                        break;
+                    default:
+                        auxiliar = true;
+                        System.out.println("No has elegido una opción válida, elige un número entre el 1 y el 12.");
+                }
+                System.out.println("Tienes " + (5 - (i)) + " hechizos por elegir."); // cómo podemos poner el número de hechizos que faltan elegir???
+            } while (auxiliar);
+        }
+        return spellsSelected;
+    }
 
 }
