@@ -6,7 +6,7 @@ public class Healing extends Spell{
     public Healing() {
     }
 
-    public Healing(String name, int magicEnergy, int healingEnergy) {
+    public Healing(String name, int healingEnergy, int magicEnergy) {
         super(name, magicEnergy);
         this.healingEnergy = healingEnergy;
     }
