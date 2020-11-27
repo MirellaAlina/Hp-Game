@@ -33,7 +33,7 @@ public class Spell {
     @Override
     public String toString() {
         return " Spell name: " + name +
-                "\n Magic energy available: " + magicEnergy + "\n";
+                "\n Magic energy consumed: " + magicEnergy + "\n";
 
     }
 }
