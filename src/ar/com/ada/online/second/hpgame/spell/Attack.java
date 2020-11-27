@@ -17,6 +17,11 @@ public class Attack extends Spell{
     }
 
     @Override
+    public Integer getMagicEnergy() {
+        return super.getMagicEnergy();
+    }
+
+    @Override
     public void setMagicEnergy(Integer magicEnergy) {
         super.setMagicEnergy(magicEnergy);
     }
