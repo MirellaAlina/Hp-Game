@@ -26,7 +26,7 @@ public class Attack extends Spell{
         return "Attack Spell:"+
                 "\n Name: " + name +
                 "\n Damage made: " + damageEnergy +
-                "\n Magic energy spent" + magicEnergy + "\n";
+                "\n Magic energy consumed" + magicEnergy + "\n";
                 //"Magic energy available" cómo mostrar la energía que queda?
     }
 }
