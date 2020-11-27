@@ -4,12 +4,36 @@ public class Spell {
     protected Integer magicEnergy;
     protected String name;
 
-    public Spell(){
+    public Spell() {
 
     }
 
-    public Spell(String name, Integer magicenergy){
+    public Spell(String name, Integer magicEnergy) {
         this.name = name;
-        this.magicEnergy = magicenergy;
+        this.magicEnergy = magicEnergy;
+    }
+
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getMagicEnergy() {
+        return magicEnergy;
+    }
+
+    public void setMagicEnergy(Integer magicEnergy) {
+        this.magicEnergy = magicEnergy;
+    }
+
+    @Override
+    public String toString() {
+        return " Spell name: " + name +
+                "\n Magic energy available: " + magicEnergy + "\n";
+
     }
 }
