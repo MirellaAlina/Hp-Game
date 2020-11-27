@@ -25,7 +25,7 @@ public class Attack extends Spell{
     public String toString() {
         return "Attack Spell:"+
                 "\n Name: " + name +
-                "\n Damage made: " + damageEnergy +
+                "\n Damage caused: " + damageEnergy +
                 "\n Magic energy consumed" + magicEnergy + "\n";
                 //"Magic energy available" cómo mostrar la energía que queda?
     }
