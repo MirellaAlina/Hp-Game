@@ -16,6 +16,10 @@ public class Recovery extends Spell{
         this.energyRecovery = damageEnergy;
     }
 
+    public Integer getMagicEnergy() {
+        return magicEnergy;
+    }
+
     @Override
     public void setMagicEnergy(Integer magicEnergy) {
         super.setMagicEnergy(magicEnergy);
