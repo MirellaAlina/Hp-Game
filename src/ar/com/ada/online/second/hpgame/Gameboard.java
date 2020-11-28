@@ -33,16 +33,16 @@ public class Gameboard {
     //llama al método para selección de hechizo para cada personaje
     //es 'public' para ser llamado por el main
     public void loadSpellsByCharacters() {
-        System.out.println("seleccion de hechizos para el jugador 1:");
+        System.out.println("\nSeleccion de hechizos para el jugador 1:\n");
         loadCharacterSpell(playerOne);
 
-        System.out.println("seleccion de hechizos para el jugador 2:");
+        System.out.println("\nSeleccion de hechizos para el jugador 2:\n");
         loadCharacterSpell(playerTwo);
     }
 
     private Character selectCharacter() {
         System.out.println("Seleccione el tipo de personaje: ");
-        System.out.println("\n 1- Mago ,\n 2- Elfo: ");
+        System.out.println("\n 1- Mago \n 2- Elfo\n ");
         int option = keyboard.nextInt();
         Character character = null;
         switch (option) {
@@ -265,7 +265,7 @@ public class Gameboard {
         List<Spell> spellsSelected = new ArrayList<>();
         boolean auxiliar;
         int option;
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 6; i++) {
             do {
                 auxiliar = false;
                 System.out.println("Elige el número del hechizo a utilizar: ");
