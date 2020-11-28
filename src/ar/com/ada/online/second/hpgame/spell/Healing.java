@@ -31,10 +31,10 @@ public class Healing extends Spell{
 
     @Override
     public String toString() {
-        return   "Healing Spell:"+
-                "\n Name: " + name +
-                "\n Energy restored: " + healingEnergy +
-                "\n Magic energy consumed" + magicEnergy + "\n";
+        return   "Hechizo de sanación:"+
+                "\n Nombre: " + name +
+                "\n Puntos de vida recuperados: " + healingEnergy +
+                "\n Energía mágica consumida: " + magicEnergy + "\n";
         //"Magic energy available" cómo mostrar la energía que queda?;
     }
 }
