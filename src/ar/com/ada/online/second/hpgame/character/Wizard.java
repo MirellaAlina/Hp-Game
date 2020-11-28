@@ -1,5 +1,6 @@
 package ar.com.ada.online.second.hpgame.character;
 
+import ar.com.ada.online.second.hpgame.spell.Spell;
 import ar.com.ada.online.second.hpgame.wand.Wand;
 
 public class Wizard extends Character {
@@ -63,7 +64,7 @@ public class Wizard extends Character {
     }
 
     @Override
-    public void addSpell() {
+    public void addSpell(Spell spell) {
 
     }
 
