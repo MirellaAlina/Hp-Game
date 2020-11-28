@@ -19,7 +19,7 @@ public class Gameboard {
     private Character playerTwo;
     private Scanner keyboard = new Scanner(System.in);
 
-    public void character() {
+    public void selectCharacters() {
         System.out.println("Selección del jugador nro 1 ");
         playerOne = selectCharacter();
 
@@ -28,6 +28,16 @@ public class Gameboard {
         System.out.println("Selección del jugador nro 2 ");
         playerTwo = selectCharacter();
 
+    }
+
+    //llama al método para selección de hechizo para cada personaje
+    //es 'public' para ser llamado por el main
+    public void loadSpellsByCharacters() {
+        System.out.println("seleccion de hechizos para el jugador 1:");
+        loadCharacterSpell(playerOne);
+
+        System.out.println("seleccion de hechizos para el jugador 2:");
+        loadCharacterSpell(playerTwo);
     }
 
     private Character selectCharacter() {
@@ -47,7 +57,7 @@ public class Gameboard {
         return character;
     }
 
-    public Character getElf() {
+    private Character getElf() {
 
         System.out.println("Seleccione el nombre de su personaje!");
         System.out.println("\t1) Dobby \t");
@@ -92,7 +102,7 @@ public class Gameboard {
         return elfPlayer;
     }
 
-    public Character getWizard() {
+    private Character getWizard() {
         System.out.println("Seleccione el nombre de su personaje!");
         System.out.println("\tGryffindor");
         System.out.println("\t1) Harry Potter\t");
@@ -163,10 +173,9 @@ public class Gameboard {
         return wizardPlayer;
     }
 
-
     //seleccion de varita
 
-    public Wand randomWandSelection() {
+    private Wand randomWandSelection() {
 
         ArrayList<Wand> arrayRandomWands = new ArrayList<>();
 
@@ -188,7 +197,7 @@ public class Gameboard {
     }
 
     // seleccion de ubicacion
-    public String characterLocation() {
+    private String characterLocation() {
 
         System.out.println("Seleccione ubicación: 1-IZQUIERDA, 2-CENTRO, 3-DERECHA");
         int optionLocation = 0;
@@ -216,7 +225,7 @@ public class Gameboard {
     }
 
 // Selección de hechizos
-    public static List<Spell> loadCharacterSpell() {
+    public void loadCharacterSpell(Character player) {
         Scanner keyboard = new Scanner(System.in);
 
         System.out.println("Solo se podrán jugar con seis (6) hechizos que elijas de la lista.\n" +
@@ -264,48 +273,47 @@ public class Gameboard {
                 option = keyboard.nextInt();
                 switch (option) {
                     case 1:
-                        spellsSelected.add(new Attack("Aguamenti", 10, 10));
+                        player.addSpell(new Attack("Aguamenti", 10, 10));
                         break;
                     case 2:
-                        spellsSelected.add(new Attack("Incendio", 20, 20));
+                        player.addSpell(new Attack("Incendio", 20, 20));
                         break;
                     case 3:
-                        spellsSelected.add(new Attack("Bombarda maxima", 25, 40));
+                        player.addSpell(new Attack("Bombarda maxima", 25, 40));
                         break;
                     case 4:
-                        spellsSelected.add(new Attack("Avada Kedavra", 100, 90));
+                        player.addSpell(new Attack("Avada Kedavra", 100, 90));
                         break;
                     case 5:
-                        spellsSelected.add(new Attack("Imperius", 90, 80));
+                        player.addSpell(new Attack("Imperius", 90, 80));
                         break;
                     case 6:
-                        spellsSelected.add(new Attack("Cruciatus", 80, 70));
+                        player.addSpell(new Attack("Cruciatus", 80, 70));
                     case 7:
-                        spellsSelected.add(new Recovery("Protego", 5, 2));
+                        player.addSpell(new Recovery("Protego", 5, 2));
                         break;
                     case 8:
-                        spellsSelected.add(new Recovery("Finite", 10, 3));
+                        player.addSpell(new Recovery("Finite", 10, 3));
                         break;
                     case 9:
-                        spellsSelected.add(new Recovery("Expelliarmus", 15, 4));
+                        player.addSpell(new Recovery("Expelliarmus", 15, 4));
                         break;
                     case 10:
-                        spellsSelected.add(new Healing("Episkey", 10, 4));
+                        player.addSpell(new Healing("Episkey", 10, 4));
                         break;
                     case 11:
-                        spellsSelected.add(new Healing("Reparifors", 15, 6));
+                        player.addSpell(new Healing("Reparifors", 15, 6));
                         break;
                     case 12:
-                        spellsSelected.add(new Healing("Vulnera Sanentur", 20, 8));
+                        player.addSpell(new Healing("Vulnera Sanentur", 20, 8));
                         break;
                     default:
                         auxiliar = true;
                         System.out.println("No has elegido una opción válida, elige un número entre el 1 y el 12.");
                 }
-                System.out.println("Tienes " + (5 - (i)) + " hechizos por elegir."); // cómo podemos poner el número de hechizos que faltan elegir???
+                System.out.println("Tienes " + (5 - i) + " hechizos por elegir.");
             } while (auxiliar);
         }
-        return spellsSelected;
     }
 
 }
