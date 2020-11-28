@@ -28,10 +28,10 @@ public class Recovery extends Spell {
 
     @Override
     public String toString() {
-        return "Attack Spell:" +
-                "\n Name: " + name +
-                "\n Energy recovery: " + energyRecovery +
-                "\n Magic energy consumed" + magicEnergy + "\n";
+        return "Hechizo de recuperación:" +
+                "\n Nombre: " + name +
+                "\n Energía mágica recuperada: " + energyRecovery +
+                "\n Energía mágica consumida: " + magicEnergy + "\n";
         //"Magic energy available" cómo mostrar la energía que queda?
     }
 }
