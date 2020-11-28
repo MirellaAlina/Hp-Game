@@ -63,6 +63,7 @@ public abstract class Character {
         this.location = location;
     }
 
+
     //METODOS ABSTRACTOS
 
     public abstract void Attack();
@@ -73,7 +74,7 @@ public abstract class Character {
 
     public abstract void aliveOrNot();
 
-    public abstract void addSpell();
+    public abstract void addSpell(Spell spell);
 
     public abstract void characterStatus();
 }
