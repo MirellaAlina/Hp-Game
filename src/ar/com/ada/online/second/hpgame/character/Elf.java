@@ -23,8 +23,10 @@ public class Elf extends Character {
     }
 
     @Override
-    public void aliveOrNot() {
+    public boolean isDead() {
+        if (energyLevel <= 0) {
 
+        } return true;
     }
 
     @Override
