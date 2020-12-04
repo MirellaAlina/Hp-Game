@@ -72,7 +72,7 @@ public abstract class Character {
 
     public abstract void magicRecovery();      //RECUPERA MAGIA
 
-    public abstract void aliveOrNot();
+    public abstract void isDead();
 
     public abstract void addSpell(Spell spell);
 
