@@ -316,6 +316,26 @@ public class Gameboard {
         }
     }
 
+    private Gameboard turn() {
+        System.out.println("Elije qué acción deseeas realizar primero: " +
+                "\n1) Atacar" +
+                "\n2) Recuperar energía mágica" +
+                "\n3) Recuperar vida");
+        int option = keyboard.nextInt();
+
+        switch (option) {
+            case 1:
+                Attack();
+                break;
+            case 2:
+                Healing();
+                break;
+            case 3:
+                magicRecovery();
+                break;
+        }
+    }
+
     public void letsFight() {
         do {
             turn(playerOne, playerTwo);
@@ -330,6 +350,6 @@ public class Gameboard {
     // pregunta al de turno qué accion attack(jugador de turno - oponente) lista de hechizos tipo ataque y qué hechizo elige, calcular todos los boosts y calcular nivel de daño int, hacia donde mandar el hechizo metodoDeUbicación() y eso se manda al oponente reciveAttak(if coincide la ubicacion, el daño se resta de la vida del pj)
     // healing(jugador de turno) calcular todos los boosts, se suma al nivel de vida
     // recovery(jugador de turno)calcular todos los boosts, se suma al nivel de energía
-    //gameboardturn(ojugador de turno)
+    //gameboardturn()
 
 }
