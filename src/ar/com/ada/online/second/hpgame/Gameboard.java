@@ -316,4 +316,20 @@ public class Gameboard {
         }
     }
 
+    public void letsFight() {
+        do {
+            turn(playerOne, playerTwo);
+            if (playerTwo.isDead()) break;
+
+            turn(playerTwo, playerOne);
+        } while (!playerOne.isDead());
+    }
+
+    // while hasta que un pj muera
+    // gameboardturn(jugador de turno - oponente)
+    // pregunta al de turno qué accion attack(jugador de turno - oponente) lista de hechizos tipo ataque y qué hechizo elige, calcular todos los boosts y calcular nivel de daño int, hacia donde mandar el hechizo metodoDeUbicación() y eso se manda al oponente reciveAttak(if coincide la ubicacion, el daño se resta de la vida del pj)
+    // healing(jugador de turno) calcular todos los boosts, se suma al nivel de vida
+    // recovery(jugador de turno)calcular todos los boosts, se suma al nivel de energía
+    //gameboardturn(ojugador de turno)
+
 }
