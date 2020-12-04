@@ -9,8 +9,8 @@ public abstract class Character {
     //ATRIBUTOS
 
     protected String name;
-    protected Integer energyLevel;
-    protected Integer magicLevel;
+    protected Integer energyLevel; //vida
+    protected Integer magicLevel; //energía mágica
     protected String location;
     protected ArrayList<Spell> spellList = new ArrayList<Spell>();
 
@@ -72,7 +72,7 @@ public abstract class Character {
 
     public abstract void magicRecovery();      //RECUPERA MAGIA
 
-    public abstract void isDead();
+    public abstract boolean isDead();
 
     public abstract void addSpell(Spell spell);
 
