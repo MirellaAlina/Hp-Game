@@ -6,11 +6,9 @@ import ar.com.ada.online.second.hpgame.character.Wizard;
 import ar.com.ada.online.second.hpgame.spell.Attack;
 import ar.com.ada.online.second.hpgame.spell.Healing;
 import ar.com.ada.online.second.hpgame.spell.Recovery;
-import ar.com.ada.online.second.hpgame.spell.Spell;
 import ar.com.ada.online.second.hpgame.wand.Wand;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -262,7 +260,7 @@ public class Gameboard {
                 "12) Vulnera Sanentur: Recupera vida 20, Energía necesaria 8.\n" +
                 "Hechizo usado para curar heridas profundas.\n");
 
-        List<Spell> spellsSelected = new ArrayList<>();
+
         boolean auxiliar;
         int option;
         for (int i = 0; i < 6; i++) {
@@ -316,25 +314,6 @@ public class Gameboard {
         }
     }
 
-    private Gameboard turn() {
-        System.out.println("Elije qué acción deseeas realizar primero: " +
-                "\n1) Atacar" +
-                "\n2) Recuperar energía mágica" +
-                "\n3) Recuperar vida");
-        int option = keyboard.nextInt();
-
-        switch (option) {
-            case 1:
-                Attack();
-                break;
-            case 2:
-                Healing();
-                break;
-            case 3:
-                magicRecovery();
-                break;
-        }
-    }
 
     public void letsFight() {
         do {
@@ -344,6 +323,38 @@ public class Gameboard {
             turn(playerTwo, playerOne);
         } while (!playerOne.isDead());
     }
+
+    private void turn(Character playerInTurn, Character opponent) {
+        System.out.println("Elije qué acción deseeas realizar primero: " +
+                "\n1) Atacar" +
+                "\n2) Recuperar energía mágica" +
+                "\n3) Recuperar vida");
+        int option = keyboard.nextInt();
+
+        switch (option) {
+            case 1:
+                playerInTurn.attack(opponent);
+                attack(playerInTurn, opponent);
+                break;
+            case 2:
+                healing(playerInTurn);
+                break;
+            case 3:
+                magicRecovery(playerInTurn);
+                break;
+        }
+    }
+//
+//    private void magicRecovery(Character playerInTurn) {
+//
+//    }
+//
+//    private void healing(Character playerInTurn) {
+//
+//    }
+//
+//    private void attack(Character playerInTurn, Character opponent) {
+//    }
 
     // while hasta que un pj muera
     // gameboardturn(jugador de turno - oponente)
