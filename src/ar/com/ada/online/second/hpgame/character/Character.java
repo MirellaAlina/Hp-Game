@@ -1,8 +1,12 @@
 package ar.com.ada.online.second.hpgame.character;
 
+import ar.com.ada.online.second.hpgame.spell.Attack;
+import ar.com.ada.online.second.hpgame.spell.Healing;
+import ar.com.ada.online.second.hpgame.spell.Recovery;
 import ar.com.ada.online.second.hpgame.spell.Spell;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Character {
 
@@ -63,18 +67,57 @@ public abstract class Character {
         this.location = location;
     }
 
+    public void reciveAttack(Integer damageEnergy, String Location) {
+        if (this.location.equals(location))
+            energyLevel = energyLevel - damageEnergy;
+        else
+            System.out.println("");
+    }
+
+    public List<Attack> getAttackSpellList() {
+        ArrayList<Attack> attacks = new ArrayList<>();
+        for (Spell spell : spellList) {
+            if (spell instanceof Attack)
+                attacks.add((Attack) spell);
+        }
+        return attacks;
+    }
+
+    public List<Healing> getHealingSpellList() {
+        ArrayList<Healing> healings = new ArrayList<>();
+        for (Spell spell : spellList) {
+            if (spell instanceof Attack)
+                healings.add((Healing) spell);
+        }
+        return healings;
+    }
+
+    public List<Recovery> getRecoverySpellList() {
+        ArrayList<Recovery> recoveries = new ArrayList<>();
+        for (Spell spell : spellList) {
+            if (spell instanceof Attack)
+                recoveries.add((Recovery) spell);
+        }
+        return recoveries;
+    }
+
+
+
 
     //METODOS ABSTRACTOS
 
-    public abstract void Attack();
+    public abstract void attack();
 
-    public abstract void Healing();        //RECUPERA VIDA
+    public abstract void healing();        //RECUPERA VIDA
 
     public abstract void magicRecovery();      //RECUPERA MAGIA
 
     public abstract boolean isDead();
 
-    public abstract void addSpell(Spell spell);
+    public void addSpell(Spell spell) {
+        spellList.add(spell);
+    }
+
 
     public abstract void characterStatus();
 }
