@@ -43,13 +43,13 @@ public class Wizard extends Character {
     }
 
     @Override
-    public void Attack() {
+    public void attack() {
 
 
     }
 
     @Override
-    public void Healing() {
+    public void healing() {
 
     }
 
@@ -63,11 +63,6 @@ public class Wizard extends Character {
         if (energyLevel <= 0) {
 
         } return true;
-    }
-
-    @Override
-    public void addSpell(Spell spell) {
-
     }
 
     @Override
