@@ -8,12 +8,14 @@ public class Elf extends Character {
     }
 
     @Override
-    public void Attack() {
+    public void Attack(Character opponent) {
 
+
+        opponent.reciveAttack(damageEnergy, loc);
     }
 
     @Override
-    public void Healing() {
+    public void healing() {
 
     }
 
@@ -27,11 +29,6 @@ public class Elf extends Character {
         if (energyLevel <= 0) {
 
         } return true;
-    }
-
-    @Override
-    public void addSpell(Spell spell) {
-
     }
 
     @Override
