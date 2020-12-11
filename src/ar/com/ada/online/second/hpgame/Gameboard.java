@@ -334,13 +334,13 @@ public class Gameboard {
         switch (option) {
             case 1:
                 playerInTurn.attack(opponent);
-                attack(playerInTurn, opponent);
+                //attack(playerInTurn, opponent);
                 break;
             case 2:
-                healing(playerInTurn);
+                //healing(playerInTurn);
                 break;
             case 3:
-                magicRecovery(playerInTurn);
+                //magicRecovery(playerInTurn);
                 break;
         }
     }
