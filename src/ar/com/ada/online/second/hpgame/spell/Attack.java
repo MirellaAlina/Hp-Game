@@ -1,7 +1,7 @@
 package ar.com.ada.online.second.hpgame.spell;
 
 public class Attack extends Spell{
-    private int damageEnergy;
+    public int damageEnergy;
 
     public Attack(String name, int damageEnergy, int magicEnergy) {
         super (name, magicEnergy);
