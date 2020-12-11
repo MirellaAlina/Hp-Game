@@ -43,8 +43,12 @@ public class Wizard extends Character {
     }
 
     @Override
-    public void attack() {
+    public void attack(Character opponent) {
+        int damageEnergySum =0;
+        String attackLocation = null;
 
+
+        opponent.reciveAttack(damageEnergySum, attackLocation);
 
     }
 
