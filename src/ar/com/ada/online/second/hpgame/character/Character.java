@@ -106,7 +106,7 @@ public abstract class Character {
 
     //METODOS ABSTRACTOS
 
-    public abstract void attack();
+    public abstract void attack(Character opponent);
 
     public abstract void healing();        //RECUPERA VIDA
 
