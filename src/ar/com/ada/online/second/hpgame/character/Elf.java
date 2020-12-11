@@ -8,11 +8,16 @@ public class Elf extends Character {
     }
 
     @Override
-    public void Attack(Character opponent) {
+    public void attack(Character opponent) {
+        int damageEnergySum =0;
+        String attackLocation = null;
 
 
-        opponent.reciveAttack(damageEnergy, loc);
+        opponent.reciveAttack(damageEnergySum, attackLocation);
+
     }
+
+
 
     @Override
     public void healing() {
