@@ -1,22 +1,22 @@
 package ar.com.ada.online.second.hpgame.spell;
 
-public class Healing extends Spell{
-    public int healingEnergy;
+public class Defense extends Spell{
+    public int defenseEnergy;
 
-    public Healing() {
+    public Defense() {
     }
 
-    public Healing(String name, int healingEnergy, int magicEnergy) {
+    public Defense(String name, int defenseEnergy, int magicEnergy) {
         super(name, magicEnergy);
-        this.healingEnergy = healingEnergy;
+        this.defenseEnergy = defenseEnergy;
     }
 
-    public int getHealingEnergy() {
-        return healingEnergy;
+    public int getDefenseEnergy() {
+        return defenseEnergy;
     }
 
-    public void setHealingEnergy(int healingEnergy) {
-        this.healingEnergy = healingEnergy;
+    public void setDefenseEnergy(int defenseEnergy) {
+        this.defenseEnergy = defenseEnergy;
     }
 
     @Override
@@ -33,7 +33,7 @@ public class Healing extends Spell{
     public String toString() {
         return   "Hechizo de sanación:"+
                 "\n Nombre: " + name +
-                "\n Puntos de vida recuperados: " + healingEnergy +
+                "\n Puntos de vida recuperados: " + defenseEnergy +
                 "\n Energía mágica consumida: " + magicEnergy + "\n";
         //"Magic energy available" cómo mostrar la energía que queda?;
     }
