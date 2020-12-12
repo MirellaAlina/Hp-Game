@@ -4,7 +4,7 @@ import ar.com.ada.online.second.hpgame.character.Character;
 import ar.com.ada.online.second.hpgame.character.Elf;
 import ar.com.ada.online.second.hpgame.character.Wizard;
 import ar.com.ada.online.second.hpgame.spell.Attack;
-import ar.com.ada.online.second.hpgame.spell.Healing;
+import ar.com.ada.online.second.hpgame.spell.Defense;
 import ar.com.ada.online.second.hpgame.spell.Recovery;
 import ar.com.ada.online.second.hpgame.wand.Wand;
 
@@ -15,7 +15,7 @@ import java.util.Scanner;
 public class Gameboard {
     private Character playerOne;
     private Character playerTwo;
-    private Scanner keyboard = new Scanner(System.in);
+    private static Scanner keyboard = new Scanner(System.in);
 
     public void selectCharacters() {
         System.out.println("Selección del jugador nro 1 ");
@@ -90,7 +90,7 @@ public class Gameboard {
         }
 
         // seleccion de ubicacion
-        elfPlayer.setLocation(characterLocation());
+        elfPlayer.setLocation(selectLocation());
 
         //seteamos demas atributos de elfo
 
@@ -159,7 +159,7 @@ public class Gameboard {
         }
 
         // seleccion de ubicacion
-        wizardPlayer.setLocation(characterLocation());
+        wizardPlayer.setLocation(selectLocation());
 
         //seteamos demas atributos de mago
 
@@ -195,9 +195,10 @@ public class Gameboard {
     }
 
     // seleccion de ubicacion
-    private String characterLocation() {
+    public static String selectLocation() {
 
         System.out.println("Seleccione ubicación: 1-IZQUIERDA, 2-CENTRO, 3-DERECHA");
+
         int optionLocation = 0;
         optionLocation = keyboard.nextInt();
         String location = null;
@@ -213,7 +214,7 @@ public class Gameboard {
 
             case 3:
                 location = "DERECHA";
-                ;
+                break;
 
             default:
                 System.out.println("Seleccione una ubicacion ingresando 1, 2 o 3");
@@ -244,7 +245,7 @@ public class Gameboard {
                 "Maleficio imperdonable, provoca un dolor insoportable y agónico en su víctima.");
 
 
-        System.out.println("\nHechizos de Recuperación:\n" +
+        System.out.println("\nHechizos de Defensa:\n" +
                 "7) Protego: Recupera energía 5, Energía necesaria 2.\n" +
                 "Genera una barrera invisible que permite bloquear y desviar hechizos enemigos.\n" +
                 "8) Finite: Recupera energía 10, Energía necesaria 3.\n" +
@@ -297,13 +298,13 @@ public class Gameboard {
                         player.addSpell(new Recovery("Expelliarmus", 15, 4));
                         break;
                     case 10:
-                        player.addSpell(new Healing("Episkey", 10, 4));
+                        player.addSpell(new Defense("Episkey", 10, 4));
                         break;
                     case 11:
-                        player.addSpell(new Healing("Reparifors", 15, 6));
+                        player.addSpell(new Defense("Reparifors", 15, 6));
                         break;
                     case 12:
-                        player.addSpell(new Healing("Vulnera Sanentur", 20, 8));
+                        player.addSpell(new Defense("Vulnera Sanentur", 20, 8));
                         break;
                     default:
                         auxiliar = true;
@@ -325,7 +326,8 @@ public class Gameboard {
     }
 
     private void turn(Character playerInTurn, Character opponent) {
-        System.out.println("Elije qué acción deseeas realizar primero: " +
+        System.out.println("\n" + playerInTurn.characterStatus());
+        System.out.println("\nElije qué acción deseeas realizar primero: " +
                 "\n1) Atacar" +
                 "\n2) Recuperar energía mágica" +
                 "\n3) Recuperar vida");
@@ -334,15 +336,18 @@ public class Gameboard {
         switch (option) {
             case 1:
                 playerInTurn.attack(opponent);
-                //attack(playerInTurn, opponent);
+                //opponent.attack(playerInTurn);
                 break;
             case 2:
-                //healing(playerInTurn);
+                playerInTurn.defense();
                 break;
             case 3:
-                //magicRecovery(playerInTurn);
+                playerInTurn.magicRecovery();
                 break;
+
         }
+        opponent.isDead();
+
     }
 //
 //    private void magicRecovery(Character playerInTurn) {

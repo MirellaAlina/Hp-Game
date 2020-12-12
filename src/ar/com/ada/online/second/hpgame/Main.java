@@ -7,6 +7,6 @@ public class Main {
         Gameboard gameboard = new Gameboard();
         gameboard.selectCharacters();
         gameboard.loadSpellsByCharacters();
-
+        gameboard.letsFight();
     }
 }

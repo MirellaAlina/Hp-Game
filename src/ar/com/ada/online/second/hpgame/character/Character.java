@@ -1,7 +1,7 @@
 package ar.com.ada.online.second.hpgame.character;
 
 import ar.com.ada.online.second.hpgame.spell.Attack;
-import ar.com.ada.online.second.hpgame.spell.Healing;
+import ar.com.ada.online.second.hpgame.spell.Defense;
 import ar.com.ada.online.second.hpgame.spell.Recovery;
 import ar.com.ada.online.second.hpgame.spell.Spell;
 
@@ -13,8 +13,8 @@ public abstract class Character {
     //ATRIBUTOS
 
     protected String name;
-    protected Integer energyLevel; //vida
-    protected Integer magicLevel; //energía mágica
+    protected Integer energyLevel = 100; //vida
+    protected Integer magicLevel = 100; //energía mágica
     protected String location;
     protected ArrayList<Spell> spellList = new ArrayList<Spell>();
 
@@ -56,7 +56,7 @@ public abstract class Character {
     }
 
     public void setMagicLevel(Integer magicLevel) {
-        this.magicLevel = magicLevel;
+        magicLevel = magicLevel;
     }
 
     public String getLocation() {
@@ -64,11 +64,11 @@ public abstract class Character {
     }
 
     public void setLocation(String location) {
-        this.location = location;
+        location = location;
     }
 
     public void reciveAttack(Integer damageEnergy, String Location) {
-        if (this.location.equals(location))
+        if (location.equals(location))
             energyLevel = energyLevel - damageEnergy;
         else
             System.out.println("");
@@ -83,13 +83,13 @@ public abstract class Character {
         return attacks;
     }
 
-    public List<Healing> getHealingSpellList() {
-        ArrayList<Healing> healings = new ArrayList<>();
+    public List<Defense> getDefenseSpellList() {
+        ArrayList<Defense> defenses = new ArrayList<>();
         for (Spell spell : spellList) {
-            if (spell instanceof Attack)
-                healings.add((Healing) spell);
+            if (spell instanceof Defense)
+                defenses.add((Defense) spell);
         }
-        return healings;
+        return defenses;
     }
 
     public List<Recovery> getRecoverySpellList() {
@@ -101,14 +101,27 @@ public abstract class Character {
         return recoveries;
     }
 
+    public Boolean isDarkOrFree() {
 
+        /*
+        Boolean b = getAttackSpellList().size() > 3 ? true : false;
+        return b;
+
+
+        if (getAttackSpellList().size() > 3)
+            return true;
+        else
+            return false;
+        */
+        return getAttackSpellList().size() > 3;
+    }
 
 
     //METODOS ABSTRACTOS
 
     public abstract void attack(Character opponent);
 
-    public abstract void healing();        //RECUPERA VIDA
+    public abstract void defense();        //RECUPERA VIDA
 
     public abstract void magicRecovery();      //RECUPERA MAGIA
 
@@ -119,5 +132,5 @@ public abstract class Character {
     }
 
 
-    public abstract void characterStatus();
+    public abstract String characterStatus();
 }
