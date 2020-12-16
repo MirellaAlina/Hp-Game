@@ -56,7 +56,7 @@ public abstract class Character {
     }
 
     public void setMagicLevel(Integer magicLevel) {
-        magicLevel = magicLevel;
+        this.magicLevel = magicLevel;
     }
 
     public String getLocation() {
@@ -64,10 +64,10 @@ public abstract class Character {
     }
 
     public void setLocation(String location) {
-        location = location;
+        this.location = location;
     }
 
-    public void reciveAttack(Integer damageEnergy, String Location) {
+    public void reciveAttack(Integer damageEnergy, String location) {
         if (location.equals(location))
             energyLevel = energyLevel - damageEnergy;
         else
