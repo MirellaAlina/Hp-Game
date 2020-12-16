@@ -197,30 +197,39 @@ public class Gameboard {
     // seleccion de ubicacion
     public static String selectLocation() {
 
-        System.out.println("Seleccione ubicación: 1-IZQUIERDA, 2-CENTRO, 3-DERECHA");
+
 
         int optionLocation = 0;
-        optionLocation = keyboard.nextInt();
-        String location = null;
-        switch (optionLocation) {
+        String locAux;
+        boolean aux;
 
-            case 1:
-                location = "IZQUIERDA";
-                break;
+        do {
+            aux = false;
+            System.out.println("Seleccione ubicación: 1-IZQUIERDA, 2-CENTRO, 3-DERECHA");
+            optionLocation = keyboard.nextInt();
+            switch (optionLocation) {
 
-            case 2:
-                location = "CENTRO";
-                break;
+                case 1:
+                    locAux = "IZQUIERDA";
+                    break;
 
-            case 3:
-                location = "DERECHA";
-                break;
+                case 2:
+                    locAux = "CENTRO";
+                    break;
 
-            default:
-                System.out.println("Seleccione una ubicacion ingresando 1, 2 o 3");
-                break;
-        }
-        return location;
+                case 3:
+                    locAux = "DERECHA";
+                    break;
+
+                default:
+                    System.out.println("Seleccione una ubicacion ingresando 1, 2 o 3");
+                    locAux = null;
+                    aux = true;
+                    break;
+            }
+        } while (aux);
+
+        return locAux;
     }
 
 // Selección de hechizos
