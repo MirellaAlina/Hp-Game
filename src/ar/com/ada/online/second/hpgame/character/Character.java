@@ -36,34 +36,42 @@ public abstract class Character {
 
     //GETTERS Y SETTERS
     public String getName() {
+
         return name;
     }
 
     public void setName(String name) {
+
         this.name = name;
     }
 
     public Integer getEnergyLevel() {
+
         return energyLevel;
     }
 
     public void setEnergyLevel(Integer energyLevel) {
+
         this.energyLevel = energyLevel;
     }
 
     public Integer getMagicLevel() {
+
         return magicLevel;
     }
 
     public void setMagicLevel(Integer magicLevel) {
+
         this.magicLevel = magicLevel;
     }
 
     public String getLocation() {
+
         return location;
     }
 
     public void setLocation(String location) {
+
         this.location = location;
     }
 
@@ -116,6 +124,11 @@ public abstract class Character {
         return getAttackSpellList().size() > 3;
     }
 
+    public void addSpell(Spell spell) {
+
+        spellList.add(spell);
+    }
+
 
     //METODOS ABSTRACTOS
 
@@ -126,11 +139,6 @@ public abstract class Character {
     public abstract void magicRecovery();      //RECUPERA MAGIA
 
     public abstract boolean isDead();
-
-    public void addSpell(Spell spell) {
-        spellList.add(spell);
-    }
-
 
     public abstract String characterStatus();
 }
