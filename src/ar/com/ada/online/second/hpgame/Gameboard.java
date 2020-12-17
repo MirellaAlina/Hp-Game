@@ -331,11 +331,12 @@ public class Gameboard {
             if (playerTwo.isDead()) break;
 
             turn(playerTwo, playerOne);
-        } while (!playerOne.isDead());
+        } while (!playerOne.isDead() && !playerTwo.isDead());
     }
 
     private void turn(Character playerInTurn, Character opponent) {
         System.out.println("\n" + playerInTurn.characterStatus());
+        System.out.println("\n" + playerInTurn.getName() + " es tu turno!! \n");
         System.out.println("\nElije qué acción deseeas realizar primero: " +
                 "\n1) Atacar" +
                 "\n2) Recuperar energía mágica" +
@@ -345,7 +346,7 @@ public class Gameboard {
         switch (option) {
             case 1:
                 playerInTurn.attack(opponent);
-                //opponent.attack(playerInTurn);
+                opponent.attack(playerInTurn);
                 break;
             case 2:
                 playerInTurn.defense();
@@ -355,7 +356,7 @@ public class Gameboard {
                 break;
 
         }
-        opponent.isDead();
+        //opponent.isDead();
 
     }
 //
@@ -376,5 +377,18 @@ public class Gameboard {
     // healing(jugador de turno) calcular todos los boosts, se suma al nivel de vida
     // recovery(jugador de turno)calcular todos los boosts, se suma al nivel de energía
     //gameboardturn()
+    
+    public Character gameWinner() {
+        Character winner = null;
+        if (playerOne.getEnergyLevel() <= 0) {
+            winner = playerTwo;
+        } else
+            winner = playerOne;
 
+        return winner;
+    }
+
+    public void printWinner() {
+        System.out.println("El ganador es " + gameWinner().getName() + "!!!");
+    }
 }
