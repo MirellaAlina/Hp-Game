@@ -76,10 +76,11 @@ public abstract class Character {
     }
 
     public void reciveAttack(Integer damageEnergy, String location) {
-        if (location.equals(location))
+        if (location.equals(location)) {
             energyLevel = energyLevel - damageEnergy;
-        else
-            System.out.println("");
+            System.out.println("\nBuen tiro! Has dañado a tu enemigo, le queda " + energyLevel + " de energía.\n");
+        } else
+            System.out.println("\nUps! Fallaste, mejora tu puntería e intenta nuevamente en el proximo turno!\n");
     }
 
     public List<Attack> getAttackSpellList() {
