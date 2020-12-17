@@ -65,7 +65,7 @@ public class Wizard extends Character {
         int opt;
         System.out.println("Elije tu ataque preferido: ");
         opt = keyboard.nextInt();
-        Attack attack = attackSpellList.get(opt);
+        Attack attack = attackSpellList.get(opt - 1);
 
         if (getMagicLevel() > attack.getDamageEnergy()) {
             if (isDarkOrFree() == true) {
