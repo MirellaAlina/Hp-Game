@@ -70,8 +70,10 @@ public class Wizard extends Character {
         if (getMagicLevel() > attack.getDamageEnergy()) {
             if (isDarkOrFree() == true) {
                 damageEnergySum = damageEnergySum + 10 + attack.getDamageEnergy() + wand.getDamageBoost();
+                magicLevel = magicLevel - attack.getMagicEnergy();
             } else
                 damageEnergySum = damageEnergySum + attack.getDamageEnergy() + wand.getDamageBoost();
+                magicLevel = magicLevel - attack.getMagicEnergy();
         } else {
             System.out.println("No tenés suficiente energía para realizar este hechizo, te regalamos 10 puntos para el próximo turno");
             int giftMagicLevel = this.getMagicLevel() + 10;
@@ -103,8 +105,10 @@ public class Wizard extends Character {
             if (getMagicLevel() > recovery.getMagicEnergy()) {
                 if (isDarkOrFree() == true) {
                     magicRecoverySum = magicRecoverySum + recovery.getEnergyRecovery();
+                    magicLevel = magicLevel - recovery.getMagicEnergy();
                 } else if (getEnergyLevel() <= 35)
                     magicRecoverySum = magicRecoverySum + 10 + recovery.getEnergyRecovery();
+                    magicLevel = magicLevel - recovery.getMagicEnergy();
             } else {
                 System.out.println("No tenés suficiente energía para realizar este hechizo, te regalamos 10 puntos para el próximo turno");
                 int giftMagicLevel = this.getMagicLevel() + 10;
@@ -132,8 +136,10 @@ public class Wizard extends Character {
         if (getMagicLevel() > defense.getMagicEnergy()) {
             if (isDarkOrFree() == true) {
                 defenseSum = defenseSum - 10 + defense.getDefenseEnergy();
+                magicLevel = magicLevel - defense.getMagicEnergy();
             } else
                 defenseSum = defenseSum + defense.getDefenseEnergy();
+                magicLevel = magicLevel - defense.getMagicEnergy();
         } else {
             System.out.println("No tenés suficiente energía para realizar este hechizo, te regalamos 10 puntos para el próximo turno");
             int giftMagicLevel = this.getMagicLevel() + 10;
