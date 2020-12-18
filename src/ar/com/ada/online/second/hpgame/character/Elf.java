@@ -75,9 +75,11 @@ public class Elf extends Character {
             if (isDarkOrFree() == true) {
                 defenseSum = defenseSum + 5 + defense.getDefenseEnergy();
                 magicLevel = magicLevel - defense.getMagicEnergy();
+                energyLevel = energyLevel + defenseSum;
             } else
                 defenseSum = defenseSum + 10 + defense.getDefenseEnergy();
                 magicLevel = magicLevel - defense.getMagicEnergy();
+                energyLevel = energyLevel + defenseSum;
         } else {
             System.out.println("No tenés suficiente energía para realizar este hechizo, te regalamos 10 puntos para el próximo turno");
             int giftMagicLevel = this.getMagicLevel() + 10;
@@ -107,10 +109,10 @@ public class Elf extends Character {
         if (getMagicLevel() > recovery.getMagicEnergy()) {
             if (isDarkOrFree() == true) {
                 magicRecoverySum = magicRecoverySum + 5 + recovery.getEnergyRecovery();
-                magicLevel = magicLevel - recovery.getMagicEnergy();
+                magicLevel = magicLevel + magicRecoverySum - recovery.getMagicEnergy();
             } else
                 magicRecoverySum = magicRecoverySum + recovery.getEnergyRecovery();
-                magicLevel = magicLevel - recovery.getMagicEnergy();
+                magicLevel = magicLevel + magicRecoverySum - recovery.getMagicEnergy();
         } else {
             System.out.println("No tenés suficiente energía para realizar este hechizo, te regalamos 10 puntos para el próximo turno");
             int giftMagicLevel = this.getMagicLevel() + 10;
