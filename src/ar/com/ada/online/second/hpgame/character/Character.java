@@ -104,7 +104,7 @@ public abstract class Character {
     public List<Recovery> getRecoverySpellList() {
         ArrayList<Recovery> recoveries = new ArrayList<>();
         for (Spell spell : spellList) {
-            if (spell instanceof Attack)
+            if (spell instanceof Recovery)
                 recoveries.add((Recovery) spell);
         }
         return recoveries;

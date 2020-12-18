@@ -349,10 +349,10 @@ public class Gameboard {
                 //opponent.attack(playerInTurn);
                 break;
             case 2:
-                playerInTurn.defense();
+                playerInTurn.magicRecovery();
                 break;
             case 3:
-                playerInTurn.magicRecovery();
+                playerInTurn.defense();
                 break;
 
         }

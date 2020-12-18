@@ -71,6 +71,7 @@ public class Elf extends Character {
         opt = keyboard.nextInt();
         Defense defense = defenseSpellListList.get(opt - 1);
 
+
         if (getMagicLevel() > defense.getMagicEnergy()) {
             if (isDarkOrFree() == true) {
                 defenseSum = defenseSum + 5 + defense.getDefenseEnergy();
