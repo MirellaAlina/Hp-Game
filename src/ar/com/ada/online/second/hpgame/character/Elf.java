@@ -22,7 +22,7 @@ public class Elf extends Character {
 
         List<Attack> attackSpellList = getAttackSpellList();
         for (int i = 0; i < attackSpellList.size(); i++) {
-            System.out.println((i+1) + ") " + attackSpellList.get(i).getName());
+            System.out.println((i + 1) + ") " + attackSpellList.get(i).getName());
         }
         // pedir que hechizo usar (1-n) opt
         int opt;
@@ -60,7 +60,7 @@ public class Elf extends Character {
         System.out.println("Los hechizos de protección disponibles son: " + getDefenseSpellList());
         List<Defense> defenseSpellListList = getDefenseSpellList();
         for (int i = 0; i < defenseSpellListList.size(); i++) {
-            System.out.println((i+1) + ") " + defenseSpellListList.get(i).getName());
+            System.out.println((i + 1) + ") " + defenseSpellListList.get(i).getName());
         }
         // pedir que hechizo usar (1-n) opt
         int opt;
@@ -91,7 +91,7 @@ public class Elf extends Character {
         System.out.println("Los hechizos de recuperación mágica disponibles son: " + getRecoverySpellList());
         List<Recovery> magicRecoverySpellList = getRecoverySpellList();
         for (int i = 0; i < magicRecoverySpellList.size(); i++) {
-            System.out.println((i+1) + ") " + magicRecoverySpellList.get(i).getName());
+            System.out.println((i + 1) + ") " + magicRecoverySpellList.get(i).getName());
         }
         // pedir que hechizo usar (1-n) opt
         int opt;
@@ -112,17 +112,19 @@ public class Elf extends Character {
         }
 
     }
+
     @Override
-    public boolean isDead () {
-        if (energyLevel <= 0) {
-            System.out.println("Has muerto.");
-        }
-        return true;
+    public boolean isDead() {
+        Boolean hasDead = false;
+        if (energyLevel <= 0)
+            hasDead = true;
+
+        return hasDead;
     }
 
     @Override
-    public String characterStatus () {
-        return   "Estado del personaje"+
+    public String characterStatus() {
+        return "Estado del personaje" +
                 "\n Nivel de vida: " + getEnergyLevel() +
                 "\n Ubicación: " + getLocation() +
                 "\n Energía mágica: " + getMagicLevel() + "\n";
