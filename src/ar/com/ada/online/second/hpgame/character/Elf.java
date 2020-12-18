@@ -22,7 +22,7 @@ public class Elf extends Character {
 
         List<Attack> attackSpellList = getAttackSpellList();
         for (int i = 0; i < attackSpellList.size(); i++) {
-            System.out.println((i+1) + ") " + attackSpellList.get(i).getName());
+            System.out.println((i + 1) + ") " + attackSpellList.get(i).getName());
         }
         // pedir que hechizo usar (1-n) opt
         int opt;
@@ -33,8 +33,11 @@ public class Elf extends Character {
         if (getMagicLevel() > attack.getMagicEnergy()) {
             if (isDarkOrFree() == true) {
                 damageEnergySum = damageEnergySum + 5 + attack.getDamageEnergy();
+                magicLevel = magicLevel - attack.getMagicEnergy();
             } else
                 damageEnergySum = damageEnergySum + attack.getDamageEnergy();
+                magicLevel = magicLevel - attack.getMagicEnergy();
+
         } else {
             System.out.println("No tenés suficiente energía para realizar este hechizo, te regalamos 10 puntos para el próximo turno");
             int giftMagicLevel = this.getMagicLevel() + 10;
@@ -60,7 +63,7 @@ public class Elf extends Character {
         System.out.println("Los hechizos de protección disponibles son: " + getDefenseSpellList());
         List<Defense> defenseSpellListList = getDefenseSpellList();
         for (int i = 0; i < defenseSpellListList.size(); i++) {
-            System.out.println((i+1) + ") " + defenseSpellListList.get(i).getName());
+            System.out.println((i + 1) + ") " + defenseSpellListList.get(i).getName());
         }
         // pedir que hechizo usar (1-n) opt
         int opt;
@@ -71,8 +74,10 @@ public class Elf extends Character {
         if (getMagicLevel() > defense.getMagicEnergy()) {
             if (isDarkOrFree() == true) {
                 defenseSum = defenseSum + 5 + defense.getDefenseEnergy();
+                magicLevel = magicLevel - defense.getMagicEnergy();
             } else
                 defenseSum = defenseSum + 10 + defense.getDefenseEnergy();
+                magicLevel = magicLevel - defense.getMagicEnergy();
         } else {
             System.out.println("No tenés suficiente energía para realizar este hechizo, te regalamos 10 puntos para el próximo turno");
             int giftMagicLevel = this.getMagicLevel() + 10;
@@ -91,7 +96,7 @@ public class Elf extends Character {
         System.out.println("Los hechizos de recuperación mágica disponibles son: " + getRecoverySpellList());
         List<Recovery> magicRecoverySpellList = getRecoverySpellList();
         for (int i = 0; i < magicRecoverySpellList.size(); i++) {
-            System.out.println((i+1) + ") " + magicRecoverySpellList.get(i).getName());
+            System.out.println((i + 1) + ") " + magicRecoverySpellList.get(i).getName());
         }
         // pedir que hechizo usar (1-n) opt
         int opt;
@@ -102,8 +107,10 @@ public class Elf extends Character {
         if (getMagicLevel() > recovery.getMagicEnergy()) {
             if (isDarkOrFree() == true) {
                 magicRecoverySum = magicRecoverySum + 5 + recovery.getEnergyRecovery();
+                magicLevel = magicLevel - recovery.getMagicEnergy();
             } else
                 magicRecoverySum = magicRecoverySum + recovery.getEnergyRecovery();
+                magicLevel = magicLevel - recovery.getMagicEnergy();
         } else {
             System.out.println("No tenés suficiente energía para realizar este hechizo, te regalamos 10 puntos para el próximo turno");
             int giftMagicLevel = this.getMagicLevel() + 10;
@@ -112,17 +119,19 @@ public class Elf extends Character {
         }
 
     }
+
     @Override
-    public boolean isDead () {
-        if (energyLevel <= 0) {
-            System.out.println("Has muerto.");
-        }
-        return true;
+    public boolean isDead() {
+        Boolean hasDead = false;
+        if (energyLevel <= 0)
+            hasDead = true;
+
+        return hasDead;
     }
 
     @Override
-    public String characterStatus () {
-        return   "Estado del personaje"+
+    public String characterStatus() {
+        return "Estado del personaje" +
                 "\n Nivel de vida: " + getEnergyLevel() +
                 "\n Ubicación: " + getLocation() +
                 "\n Energía mágica: " + getMagicLevel() + "\n";
