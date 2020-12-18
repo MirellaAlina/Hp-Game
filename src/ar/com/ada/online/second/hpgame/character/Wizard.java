@@ -146,10 +146,11 @@ public class Wizard extends Character {
     }
     @Override
     public boolean isDead() {
-        if (energyLevel <= 0) {
+        Boolean hasDead = false;
+        if (energyLevel <= 0)
+            hasDead = true;
 
-        }
-        return true;
+        return hasDead;
 
     }
 
