@@ -69,7 +69,7 @@ public class Elf extends Character {
         int opt;
         System.out.println("Elije tu hechizo de protección: ");
         opt = keyboard.nextInt();
-        Defense defense = defenseSpellListList.get(opt);
+        Defense defense = defenseSpellListList.get(opt - 1);
 
         if (getMagicLevel() > defense.getMagicEnergy()) {
             if (isDarkOrFree() == true) {
@@ -102,7 +102,7 @@ public class Elf extends Character {
         int opt;
         System.out.println("Elije tu hechizo de protección: ");
         opt = keyboard.nextInt();
-        Recovery recovery = magicRecoverySpellList.get(opt);
+        Recovery recovery = magicRecoverySpellList.get(opt - 1);
 
         if (getMagicLevel() > recovery.getMagicEnergy()) {
             if (isDarkOrFree() == true) {
