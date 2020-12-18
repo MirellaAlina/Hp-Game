@@ -13,8 +13,8 @@ public abstract class Character {
     //ATRIBUTOS
 
     protected String name;
-    protected Integer energyLevel = 100; //vida
-    protected Integer magicLevel = 100; //energía mágica
+    protected Integer energyLevel; //vida
+    protected Integer magicLevel; //energía mágica
     protected String location;
     protected ArrayList<Spell> spellList = new ArrayList<Spell>();
 
