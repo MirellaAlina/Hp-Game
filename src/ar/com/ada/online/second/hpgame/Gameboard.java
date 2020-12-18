@@ -331,7 +331,7 @@ public class Gameboard {
             if (playerTwo.isDead()) break;
 
             turn(playerTwo, playerOne);
-        } while (!playerOne.isDead() && !playerTwo.isDead());
+        } while (!playerOne.isDead());
     }
 
     private void turn(Character playerInTurn, Character opponent) {
@@ -346,7 +346,7 @@ public class Gameboard {
         switch (option) {
             case 1:
                 playerInTurn.attack(opponent);
-                opponent.attack(playerInTurn);
+                //opponent.attack(playerInTurn);
                 break;
             case 2:
                 playerInTurn.defense();
@@ -356,6 +356,10 @@ public class Gameboard {
                 break;
 
         }
+        System.out.println("\nDeseas cambiar de ubicacion?\n 1) Si\n 2) No");
+        int opt = keyboard.nextInt();
+        if (opt == 1)
+            playerInTurn.setLocation(selectLocation());
         //opponent.isDead();
 
     }
