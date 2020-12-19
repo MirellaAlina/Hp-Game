@@ -75,8 +75,8 @@ public abstract class Character {
         this.location = location;
     }
 
-    public void reciveAttack(Integer damageEnergy, String location) {
-        if (location.equals(location)) {
+    public void reciveAttack(Integer damageEnergy, String attackLocation) {
+        if (location.equals(attackLocation)) {
             energyLevel = energyLevel - damageEnergy;
             System.out.println("\nBuen tiro! Has dañado a tu enemigo, le queda " + energyLevel + " de energía.\n");
         } else

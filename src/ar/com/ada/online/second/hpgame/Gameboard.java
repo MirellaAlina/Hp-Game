@@ -335,12 +335,12 @@ public class Gameboard {
     }
 
     private void turn(Character playerInTurn, Character opponent) {
-        System.out.println("\n" + playerInTurn.characterStatus());
         System.out.println("\n" + playerInTurn.getName() + " es tu turno!! \n");
+        System.out.println("\n" + playerInTurn.characterStatus() + "\n");
         System.out.println("\nElije qué acción deseeas realizar primero: " +
                 "\n1) Atacar" +
                 "\n2) Recuperar energía mágica" +
-                "\n3) Recuperar vida");
+                "\n3) Recuperar vida\n");
         int option = keyboard.nextInt();
 
         switch (option) {
@@ -356,31 +356,17 @@ public class Gameboard {
                 break;
 
         }
+        if (opponent.isDead())
+            printWinner();
+        else {
         System.out.println("\nDeseas cambiar de ubicacion?\n 1) Si\n 2) No");
         int opt = keyboard.nextInt();
         if (opt == 1)
             playerInTurn.setLocation(selectLocation());
-        //opponent.isDead();
+        }
 
     }
-//
-//    private void magicRecovery(Character playerInTurn) {
-//
-//    }
-//
-//    private void healing(Character playerInTurn) {
-//
-//    }
-//
-//    private void attack(Character playerInTurn, Character opponent) {
-//    }
 
-    // while hasta que un pj muera
-    // gameboardturn(jugador de turno - oponente)
-    // pregunta al de turno qué accion attack(jugador de turno - oponente) lista de hechizos tipo ataque y qué hechizo elige, calcular todos los boosts y calcular nivel de daño int, hacia donde mandar el hechizo metodoDeUbicación() y eso se manda al oponente reciveAttak(if coincide la ubicacion, el daño se resta de la vida del pj)
-    // healing(jugador de turno) calcular todos los boosts, se suma al nivel de vida
-    // recovery(jugador de turno)calcular todos los boosts, se suma al nivel de energía
-    //gameboardturn()
     
     public Character gameWinner() {
         Character winner = null;

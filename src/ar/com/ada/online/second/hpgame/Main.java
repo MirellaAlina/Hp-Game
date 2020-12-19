@@ -8,6 +8,5 @@ public class Main {
         gameboard.selectCharacters();
         gameboard.loadSpellsByCharacters();
         gameboard.letsFight();
-        gameboard.printWinner();
     }
 }

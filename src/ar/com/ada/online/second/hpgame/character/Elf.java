@@ -31,28 +31,23 @@ public class Elf extends Character {
         Attack attack = attackSpellList.get(opt - 1);
 
         if (getMagicLevel() > attack.getMagicEnergy()) {
-            if (isDarkOrFree() == true) {
+            if (isDarkOrFree()) {
                 damageEnergySum = damageEnergySum + 5 + attack.getDamageEnergy();
-                magicLevel = magicLevel - attack.getMagicEnergy();
+
             } else
                 damageEnergySum = damageEnergySum + attack.getDamageEnergy();
-                magicLevel = magicLevel - attack.getMagicEnergy();
+
+            magicLevel = magicLevel - attack.getMagicEnergy();
+            // preguntar la ubicacion del ataque
+            attackLocation = Gameboard.selectLocation();
+            opponent.reciveAttack(damageEnergySum, attackLocation);
 
         } else {
             System.out.println("No tenés suficiente energía para realizar este hechizo, te regalamos 10 puntos para el próximo turno");
             int giftMagicLevel = this.getMagicLevel() + 10;
             this.setMagicLevel(giftMagicLevel);
         }
-        // Si el EM > attack.getMagicEnergy();
-        // preguntar si es libre, de V => damageEnergySum = damageEnergySum + 5 + attack.getDamageEnergy();
-        // preguntar si es libre, de F => damageEnergySum = damageEnergySum + attack.getDamageEnergy();
-        // Sino sumarle +10 a magicEnergy
 
-
-        // preguntar la ubicacion del ataque
-        attackLocation = Gameboard.selectLocation();
-
-        opponent.reciveAttack(damageEnergySum, attackLocation);
 
     }
 
@@ -73,14 +68,14 @@ public class Elf extends Character {
 
 
         if (getMagicLevel() > defense.getMagicEnergy()) {
-            if (isDarkOrFree() == true) {
+            if (isDarkOrFree()) {
                 defenseSum = defenseSum + 5 + defense.getDefenseEnergy();
-                magicLevel = magicLevel - defense.getMagicEnergy();
-                energyLevel = energyLevel + defenseSum;
+
             } else
                 defenseSum = defenseSum + 10 + defense.getDefenseEnergy();
-                magicLevel = magicLevel - defense.getMagicEnergy();
-                energyLevel = energyLevel + defenseSum;
+
+            magicLevel = magicLevel - defense.getMagicEnergy();
+            energyLevel = energyLevel + defenseSum;
         } else {
             System.out.println("No tenés suficiente energía para realizar este hechizo, te regalamos 10 puntos para el próximo turno");
             int giftMagicLevel = this.getMagicLevel() + 10;
@@ -89,9 +84,8 @@ public class Elf extends Character {
         }
 
 
-        //metodos
-
     }
+
 
     @Override
     public void magicRecovery() {
@@ -108,12 +102,13 @@ public class Elf extends Character {
         Recovery recovery = magicRecoverySpellList.get(opt - 1);
 
         if (getMagicLevel() > recovery.getMagicEnergy()) {
-            if (isDarkOrFree() == true) {
+            if (isDarkOrFree()) {
                 magicRecoverySum = magicRecoverySum + 5 + recovery.getEnergyRecovery();
-                magicLevel = magicLevel + magicRecoverySum - recovery.getMagicEnergy();
+
             } else
                 magicRecoverySum = magicRecoverySum + recovery.getEnergyRecovery();
-                magicLevel = magicLevel + magicRecoverySum - recovery.getMagicEnergy();
+
+            magicLevel = magicLevel + magicRecoverySum - recovery.getMagicEnergy();
         } else {
             System.out.println("No tenés suficiente energía para realizar este hechizo, te regalamos 10 puntos para el próximo turno");
             int giftMagicLevel = this.getMagicLevel() + 10;
