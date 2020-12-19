@@ -32,6 +32,6 @@ public class Wand {
 
     @Override
     public String toString() {
-        return name + "+ dmageBoost" + damageBoost ;
+        return name + ". Tienes un daño extra de:" + damageBoost;
     }
 }
