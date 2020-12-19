@@ -85,4 +85,5 @@ personajes de la partida (ambos personajes)._
 ## ✒️Autores 
 * **AIara Isleño** - *Creadora* - [iaraisle](https://github.com/iaraisle)
 * **Mirella Ibañez** - *Creadora* - [MirellaAlina](https://github.com/MirellaAlina)
+
 _Gracias a Vladimir Castañeda por darnos las herramientas para poder llevar a cabo este proyecto_
