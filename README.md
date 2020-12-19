@@ -19,10 +19,15 @@ la cual quiere iniciar la partida.
 
 ● Los personajes tienen las siguientes características:
 ○ nombre
+
 ○ ubicación
+
 ○ nivel de vida
+
 ○ energia magica
-○ Lista de hechizos.
+
+○ Lista de hechizos
+
 ■ varita (para los personajes de tipo mago)
 
 ● En cada turno, los personajes pueden hacer una de las tres acciones disponibles: Atacar ,
@@ -45,7 +50,9 @@ sanación un máximo de 20 puntos de vida. Los echizos de tipo Recuperación só
 máximo de 15 puntos y la energía mágica requerida un máximo de 8 puntos. Solo hay estas 3
 excepciones en los hechizos de ataque:
 ○ Avada Kedavra : 100 pts de daño y 90 pts de energía mágica requerida
+
 ○ Imperius : 90 pts de daño y 80 pts de energía mágica requerida
+
 ○ Cruciatus : 80 pts de daño y 70 pts de energía mágica requerida
 
 ● Al momento de realizar un ataque, el oponente recibe el nivel de daño de ese ataque, pero solo
@@ -57,6 +64,7 @@ disminuye 10 puntos en los hechizos de defensa.
 
 ● Para los magos blancos (no oscuros), al usar un hechizo de recuperación, este incrementa 10
 puntos sobre lo que aporta el hechizo, solo si su nivel de vida es menor o igual a 35 puntos.
+
 ● Para los elfos libres, al usar un hechizo de cualquier tipo, este incrementa 5 puntos sobre lo que
 aporta el hechizo.
 
@@ -73,18 +81,28 @@ cero.
 
 ### ⚙️Aclaraciones técnicas 
 ● las acciones (métodos) de los personajes son:
+
 ○ Atacar : lógica para seleccionar un hechizo para el ataque y la ubicación a donde se quiere
 realizar el ataque.
+
 ○ Sanación : lógica para seleccionar un hechizo para la sanación del personaje
+
 ○ Recuperación : lógica para seleccionar un hechizo para la recuperación de la energía
 mágica del personaje
+
 ○ Recibir ataque : lógica el nivel de daño de un hechizo y si este fue efectivo o no.
+
 ○ Está vivo : lógica que indica si el personaje aún sigue vivo.
+
 ○ Agregar hechizo : lógica agregar al listado de hechizos del personaje un hechizo
 seleccionado.
+
 ○ Estatus del personaje : lógica que muestra por pantalla el estatus del personaje: nivel de
 vida, ubicación, energía mágica , etc.
+
 ■ Es oscuro o libre : indica si el (mago es oscuro o no/ elfo el libre o no)
+
+
 ### 🏁 Dinámica del juego 
 Al inciar el juego, debe tener este flujo:
 
@@ -107,7 +125,7 @@ personajes de la partida (ambos personajes).
 
 ## ✒️Autores 
 
-* **AIara Isleño** - *Creadora* - [iaraisle](https://github.com/iaraisle)
+* **Iara Isleño** - *Creadora* - [iaraisle](https://github.com/iaraisle)
 * **Mirella Ibañez** - *Creadora* - [MirellaAlina](https://github.com/MirellaAlina)
 
 _Gracias a Vladimir Castañeda por darnos las herramientas para poder llevar a cabo este proyecto_
